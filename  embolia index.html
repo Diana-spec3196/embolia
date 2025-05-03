@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эмболия амниотической жидкостью - Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin: 40px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+        }
+        .event {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .event:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 4px solid #2980b9;
+        }
+        .event.critical::before {
+            background: #e74c3c;
+            border-color: #c0392b;
+        }
+        .event.important::before {
+            background: #f39c12;
+            border-color: #d35400;
+        }
+        .event.good::before {
+            background: #2ecc71;
+            border-color: #27ae60;
+        }
+        .time {
+            font-weight: bold;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .details {
+            display: none;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        .phase {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+        }
+        .nse-chart {
+            margin: 30px 0;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Эмболия амниотической жидкостью - Хронология событий</h1>
+        
+        <div class="timeline">
+            <div class="phase">Дородовой период</div>
+            
+            <div class="event">
+                <div class="time">17.04, 00:00</div>
+                <div class="title">Начало спонтанной родовой деятельности</div>
+                <div class="details">
+                    <p>Регулярные схватки каждые 5-7 минут</p>
+                    <p>Шейка матки: открытие 3 см</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="time">17.04, 05:30</div>
+                <div class="title">Излитие околоплодных вод + эпидуральная аналгезия</div>
+                <div class="details">
+                    <p>Околоплодные воды светлые, без примеси мекония</p>
+                    <p>Эпидуральная аналгезия: бупивакаин 0.125%</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="time">17.04, 09:40</div>
+                <div class="title">Полное раскрытие шейки матки</div>
+                <div class="details">
+                    <p>Головка плода большим сегментом во входе в малый таз (+1)</p>
+                    <p>Начало потужного периода</p>
+                </div>
+            </div>
+            
+            <div class="phase">Критический период</div>
+            
+            <div class="event critical">
+                <div class="time">17.04, 10:33</div>
+                <div class="title">Внезапная остановка сердца</div>
+                <div class="details">
+                    <p>Потеря сознания, отсутствие дыхания и пульса</p>
+                    <p>Кожные покровы резко бледные</p>
+                    <p>Объявлен "код синий"</p>
+                </div>
+            </div>
+            
+            <div class="event critical">
+                <div class="time">17.04, 10:34</div>
+                <div class="title">Начало СЛР</div>
+                <div class="details">
+                    <p>Непрямой массаж сердца</p>
+                    <p>Матка смещена влево для устранения аорто-кавальной компрессии</p>
+                </div>
+            </div>
+            
+            <div class="event critical">
+                <div class="time">17.04, 10:36</div>
+                <div class="title">Интубация трахеи, начало ИВЛ</div>
+                <div class="details">
+                    <p>FiO<sub>2</sub> 100%</p>
+                    <p>Введен адреналин 1 мг</p>
+                </div>
+            </div>
+            
+            <div class="event important">
+                <div class="time">17.04, 10:38</div>
+                <div class="title">Экстренное кесарево сечение</div>
+                <div class="details">
+                    <p>Рождение живой доношенной девочки</p>
+                    <p>Вес: 3730 г, рост: 52 см</p>
+                    <p>Апгар: 5/6/7 баллов</p>
+                </div>
+            </div>
+            
+            <div class="event important">
+                <div class="time">17.04, 10:39</div>
+                <div class="title">Восстановление синусового ритма</div>
+                <div class="details">
+                    <p>АД: 74/34 мм рт.ст.</p>
+                    <p>ЧСС: 170 уд/мин</p>
+                    <p>SpO<sub>2</sub>: 95%</p>
+                    <p>Начата вазопрессорная поддержка</p>
+                </div>
+            </div>
+            
+            <div class="event critical">
+                <div class="time">17.04, 10:44</div>
+                <div class="title">Повторная остановка сердца</div>
+                <div class="details">
+                    <p>Асистолия</p>
+                    <p>Повторное введение адреналина</p>
+                    <p>СЛР в течение 4 минут</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="time">17.04, 11:50</div>
+                <div class="title">Завершение операции</div>
+                <div class="details">
+                    <p>Кровопотеря: 2343 мл</p>
+                    <p>Гемоглобин: 83 г/л</p>
+                    <p>Перелито: 19 доз криопреципитата, 859 мл эр. массы</p>
+                </div>
+            </div>
+            
+            <div class="phase">Послеоперационный период</div>
+            
+            <div class="event">
+                <div class="time">17.04 (после операции)</div>
+                <div class="title">Перевод в ОРИТ</div>
+                <div class="details">
+                    <p>ИВЛ в протективном режиме</p>
+                    <p>Продолжение вазопрессоров</p>
+                    <p>Антибактериальная терапия</p>
+                </div>
+            </div>
+            
+            <div class="event important">
+                <div class="time">18.04</div>
+                <div class="title">NSE в 3 раза выше нормы</div>
+                <div class="details">
+                    <p>Нейронспецифическая энолаза: 49 мкг/л (норма <16.3)</p>
+                    <p>Подтверждение гипоксического поражения ЦНС</p>
+                    <p>Прогностически неблагоприятный маркер</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="time">23.04 (6 сутки)</div>
+                <div class="title">Отключение вазопрессоров</div>
+                <div class="details">
+                    <p>Стабилизация гемодинамики</p>
+                    <p>Наложение трахеостомы</p>
+                </div>
+            </div>
+            
+            <div class="event good">
+                <div class="time">27.04 (10 сутки)</div>
+                <div class="title">Восстановление сознания</div>
+                <div class="details">
+                    <p>Удаление трахеостомической трубки</p>
+                    <p>Контактна, ориентирована</p>
+                </div>
+            </div>
+            
+            <div class="event good">
+                <div class="time">30.04 (13 сутки)</div>
+                <div class="title">Перевод в гинекологическое отделение</div>
+                <div class="details">
+                    <p>Состояние стабильное</p>
+                    <p>Продолжение реабилитации</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nse-chart">
+            <canvas id="nseChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Показать/скрыть детали при клике
+        document.querySelectorAll('.event').forEach(event => {
+            event.addEventListener('click', function() {
+                const details = this.querySelector('.details');
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // График NSE
+        const ctx = document.getElementById('nseChart').getContext('2d');
+        const nseChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['17.04 (до)', '18.04', '20.04', '23.04', '27.04'],
+                datasets: [{
+                    label: 'NSE (мкг/л)',
+                    data: [12, 49, 38, 25, 18],
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.3,
+                    fill: true
+                }, {
+                    label: 'Норма NSE (<16.3)',
+                    data: [16.3, 16.3, 16.3, 16.3, 16.3],
+                    borderColor: '#2ecc71',
+                    borderDash: [5, 5],
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Динамика нейронспецифической энолазы (NSE)',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw} мкг/л`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'NSE (мкг/л)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Дата'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
